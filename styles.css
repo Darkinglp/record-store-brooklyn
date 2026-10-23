@@ -1,5 +1,5 @@
 /* ==========================================================
-   CSS VARIABLES & DESIGN SYSTEM
+   CSS VARIABLES & DESIGN SYSTEM (CALIBRADO A PROPORCIÓN 75%)
    ========================================================== */
 :root {
   --color-charcoal: #121212;
@@ -10,6 +10,7 @@
   --color-dark-brown: #231C18;
   --color-burnt-orange: #C85A17;
   --color-burnt-orange-hover: #A7460C;
+  --color-gold: #D4AF37;
   --color-border: rgba(245, 243, 239, 0.12);
   --color-border-light: rgba(18, 18, 18, 0.12);
 
@@ -17,7 +18,8 @@
   --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  --max-width: 1320px;
+  /* Reducido de 1320px a 1060px para dar aire lateral como al 75% de zoom */
+  --max-width: 1060px;
 }
 
 /* ==========================================================
@@ -31,7 +33,8 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  /* Escala base al 85% en escritorio para lograr el look de 75% sin hacer zoom */
+  font-size: 13.6px;
   background-color: var(--color-charcoal);
   color: var(--color-ivory);
 }
@@ -67,11 +70,11 @@ ul {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 2.5rem;
 }
 
 .section-padding {
-  padding: 8rem 0;
+  padding: 6rem 0;
 }
 
 .bg-charcoal {
@@ -89,25 +92,25 @@ ul {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--color-burnt-orange);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
   line-height: 0.95;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 }
 
 .section-title-large {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 7vw, 6rem);
-  line-height: 0.9;
+  font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+  line-height: 0.92;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 /* ==========================================================
@@ -118,11 +121,11 @@ ul {
   align-items: center;
   justify-content: center;
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  padding: 1.1rem 2.2rem;
+  padding: 0.95rem 1.9rem;
   border-radius: 0;
   cursor: pointer;
   transition: var(--transition-smooth);
@@ -154,7 +157,23 @@ ul {
 /* ==========================================================
    NAVIGATION
    ========================================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.2rem 0;
+  transition: var(--transition-smooth);
+}
 
+.navbar.scrolled {
+  background-color: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
 
 .nav-container {
   display: flex;
@@ -163,12 +182,12 @@ ul {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 2.5rem;
 }
 
 .brand-logo {
   font-family: var(--font-display);
-  font-size: 1.85rem;
+  font-size: 1.75rem;
   letter-spacing: 0.08em;
   color: var(--color-ivory);
 }
@@ -176,11 +195,11 @@ ul {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.25rem;
+  gap: 2rem;
 }
 
 .nav-link {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 400;
   letter-spacing: 0.15em;
   color: var(--color-warm-beige);
@@ -204,6 +223,20 @@ ul {
 
 .nav-link:hover::after {
   width: 100%;
+}
+
+.nav-vip-badge {
+  color: #f3c663 !important;
+  font-weight: 500;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.nav-vip-badge:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #f3c663;
 }
 
 .nav-cta {
@@ -232,40 +265,29 @@ ul {
    ========================================================== */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 92vh;
   display: flex;
   align-items: center;
-  padding: 8rem 2rem 5rem;
+  padding: 6.5rem 2.5rem 4rem;
   overflow: hidden;
 }
 
-
-
-/* El disco gigante que pasa por DETRÁS de las letras */
 .hero-vinyl-wrapper {
   position: absolute;
-  /* Lo corremos más hacia el centro/izquierda para que quede debajo del texto */
-  right: -22%;
+  right: -12%;
   top: 50%;
   transform: translateY(-50%);
-  
-  /* Tamaño colosal para que abarque gran parte de la pantalla */
-  width: clamp(900px, 90vw, 1500px);
+  width: clamp(580px, 62vw, 960px);
   aspect-ratio: 1 / 1;
   pointer-events: none;
-  
-  /* z-index menor que el texto (5), pero mayor que el overlay de fondo (2) */
   z-index: 2;
-  
-  /* Opacidad perfecta para que no sea un bloque negro sólido y se integre */
-  opacity: 0.9;
+  opacity: 0.88;
 }
 
-/* El disco y la animación de rotación */
 .vinyl-disc {
   width: 100%;
   height: 100%;
-  border-radius: 50%; /* <-- FUNDAMENTAL: convierte el área táctil en un círculo y elimina las esquinas invisibles */
+  border-radius: 50%;
   animation: spinVinyl 18s linear infinite;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
   pointer-events: auto;
@@ -283,27 +305,10 @@ ul {
   border-radius: 50%;
 }
 
-/* Animación de 360 grados */
 @keyframes spinVinyl {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
-
-
-/* Ajuste para pantallas pequeñas (móviles) */
-@media (max-width: 900px) {
-  .hero-vinyl-wrapper {
-    right: -15%;
-    top: 65%;
-    width: 280px;
-    opacity: 0.35; /* Marca de agua sutil de fondo para no tapar los textos */
-  }
-}
-
 
 .hero-bg {
   position: absolute;
@@ -312,10 +317,10 @@ ul {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center; /* Controla el encuadre */
+  background-position: center;
   transform: scale(1.03);
   transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: contrast(105%) brightness(85%); /* Ajuste de tono analógico y oscuro */
+  filter: contrast(105%) brightness(85%);
   z-index: 1;
 }
 
@@ -339,7 +344,7 @@ ul {
   max-width: var(--max-width);
   margin: 0 auto;
   width: 100%;
-  pointer-events: none; /* Deja pasar el cursor hacia el disco */
+  pointer-events: none;
 }
 
 .hero-tag {
@@ -347,20 +352,17 @@ ul {
   font-size: 0.75rem;
   letter-spacing: 0.25em;
   color: var(--color-burnt-orange);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.1rem;
 }
 
 .hero-title {
   font-family: var(--font-display);
-  /* Letras enormes y contundentes */
-  font-size: clamp(4.5rem, 12vw, 10rem);
-  line-height: 0.88;
+  font-size: clamp(3.6rem, 8.5vw, 7.2rem);
+  line-height: 0.9;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--color-ivory);
-  margin-bottom: 2rem;
-  
-  /* Mantener al frente sobre el disco */
+  margin-bottom: 1.5rem;
   position: relative;
   z-index: 5;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
@@ -371,36 +373,37 @@ ul {
 .hero-subtext,
 .hero-actions,
 .hero-meta {
- pointer-events: none;
+  pointer-events: none;
 }
 
 .hero-subtext {
-  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
   font-weight: 300;
   color: var(--color-warm-beige);
-  max-width: 580px;
-  line-height: 1.5;
-  margin-bottom: 3rem;
+  max-width: 500px;
+  line-height: 1.55;
+  margin-bottom: 2.25rem;
 }
 
 .hero-actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.9rem;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.75rem;
   position: relative;
   z-index: 10;
-  pointer-events: auto !important; /* Fuerza la reactivación */
+  pointer-events: auto !important;
 }
 
 .hero-actions .btn,
 .hero-actions a,
 .hero-meta,
 .hero-meta a {
-  pointer-events: auto !important; /* Garantiza el clic en cada botón */
+  pointer-events: auto !important;
   cursor: pointer;
 }
+
 .btn-outline {
   background-color: transparent;
   color: var(--color-muted);
@@ -415,21 +418,21 @@ ul {
 
 .hero-meta {
   display: flex;
-  gap: 3.5rem;
+  gap: 3rem;
   border-top: 1px solid var(--color-border);
-  padding-top: 2rem;
+  padding-top: 1.5rem;
 }
 
 .meta-label {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.15em;
   color: var(--color-muted);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .meta-value {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   letter-spacing: 0.05em;
   color: var(--color-ivory);
 }
@@ -441,7 +444,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
 .scroll-indicator span {
@@ -453,7 +456,7 @@ ul {
 
 .scroll-line {
   width: 1px;
-  height: 48px;
+  height: 40px;
   background-color: var(--color-border);
   position: relative;
   overflow: hidden;
@@ -485,29 +488,29 @@ ul {
 
 .editorial-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 5rem;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
   align-items: center;
 }
 
 .editorial-heading {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
   line-height: 0.95;
   letter-spacing: 0.02em;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.8rem;
 }
 
 .editorial-body p {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--color-warm-beige);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   font-weight: 300;
 }
 
 .signature {
-  margin-top: 3rem;
+  margin-top: 2.2rem;
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   color: var(--color-burnt-orange);
@@ -517,6 +520,7 @@ ul {
   position: relative;
   overflow: hidden;
   background-color: var(--color-dark-brown);
+  border-radius: 6px;
 }
 
 .image-wrapper img {
@@ -533,12 +537,12 @@ ul {
 .aspect-vertical {
   aspect-ratio: 4 / 5;
   width: 100%;
-  min-height: 480px; /* Evita que el contenedor colapse en gris */
+  max-height: 430px;
   position: relative;
   overflow: hidden;
   background-color: var(--color-dark-brown);
 }
-/* Video integrado en About the Space */
+
 .video-wrapper {
   position: relative;
   width: 100%;
@@ -560,8 +564,8 @@ ul {
 
 .img-caption {
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 0.85rem;
+  right: 0.85rem;
   font-size: 0.65rem;
   letter-spacing: 0.15em;
   background: rgba(18, 18, 18, 0.8);
@@ -574,7 +578,7 @@ ul {
    THE EXPERIENCE
    ========================================================== */
 .section-header {
-  margin-bottom: 5rem;
+  margin-bottom: 3.5rem;
 }
 
 .experience-list {
@@ -584,10 +588,10 @@ ul {
 
 .exp-row {
   display: grid;
-  grid-template-columns: 200px 1fr 340px;
-  gap: 3rem;
+  grid-template-columns: 165px 1fr 260px;
+  gap: 2.5rem;
   align-items: center;
-  padding: 4rem 0;
+  padding: 2.8rem 0;
   border-top: 1px solid var(--color-border);
 }
 
@@ -598,7 +602,7 @@ ul {
 .exp-num {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.2vw, 3.2rem); /* Escala suavemente */
+  font-size: clamp(1.7rem, 2.5vw, 2.4rem);
   line-height: 1;
   color: var(--color-burnt-orange);
   white-space: nowrap;
@@ -606,18 +610,18 @@ ul {
 
 .exp-category {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.15em;
   color: var(--color-muted);
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
 }
 
 .exp-title {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  font-size: clamp(1.6rem, 2.3vw, 2.1rem);
   line-height: 1;
   letter-spacing: 0.02em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.9rem;
 }
 
 .exp-content p {
@@ -625,23 +629,26 @@ ul {
   font-size: 0.95rem;
   font-weight: 300;
   line-height: 1.6;
-  max-width: 520px;
+  max-width: 480px;
 }
 
-.editorial-note {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--color-muted);
-  margin-top: 1rem;
-  font-style: italic;
+.exp-row .exp-image {
+  width: 260px !important;
+  min-width: 260px !important;
+  height: 175px !important;
+  max-height: 175px !important;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
 }
 
 .exp-image .image-wrapper {
-  aspect-ratio: 16 / 11;
+  width: 100%;
+  height: 100%;
 }
 
 /* ==========================================================
-   PRIVATE EVENTS
+   PRIVATE EVENTS (BOOK US)
    ========================================================== */
 .private-events {
   background-color: var(--color-charcoal);
@@ -650,66 +657,56 @@ ul {
 .private-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+  gap: 3.5rem;
   align-items: center;
 }
 
 .private-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 400;
   color: var(--color-warm-beige);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .private-desc {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--color-muted);
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
+  line-height: 1.65;
+  margin-bottom: 2rem;
   font-weight: 300;
 }
 
 .occasions-block {
-  margin-bottom: 3rem;
-  padding: 2rem 0;
+  margin-bottom: 2.25rem;
+  padding: 1.5rem 0;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
 
 .occasions-label {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.15em;
   color: var(--color-burnt-orange);
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .occasions-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem 2rem;
+  gap: 0.6rem 1.5rem;
 }
 
 .occasions-list li {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 0.1em;
   color: var(--color-ivory);
 }
 
-.aspect-editorial {
-  aspect-ratio: 4 / 5;
-}
-
-.image-stamp {
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  color: var(--color-ivory);
-  background-color: rgba(18, 18, 18, 0.85);
-  padding: 0.4rem 0.8rem;
-  backdrop-filter: blur(4px);
+/* Ajuste proporcional del carrusel en escritorio */
+.bookus-carousel-container {
+  max-width: 490px !important;
+  height: 380px !important;
 }
 
 /* ==========================================================
@@ -717,12 +714,12 @@ ul {
    ========================================================== */
 .section-header-center {
   text-align: center;
-  max-width: 680px;
-  margin: 0 auto 5rem;
+  max-width: 600px;
+  margin: 0 auto 3.5rem;
 }
 
 .section-lead {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--color-warm-beige);
   font-weight: 300;
 }
@@ -730,13 +727,15 @@ ul {
 .events-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 4.5rem;
+  gap: 1.6rem;
+  margin-bottom: 3.5rem;
 }
 
 .event-card {
   background-color: rgba(245, 243, 239, 0.02);
   border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -758,7 +757,7 @@ ul {
 }
 
 .event-card-body {
-  padding: 2.25rem 2rem;
+  padding: 1.75rem 1.5rem;
   flex-grow: 1;
 }
 
@@ -767,35 +766,459 @@ ul {
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   color: var(--color-burnt-orange);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .event-card-title {
   font-family: var(--font-display);
-  font-size: 1.85rem;
+  font-size: 1.65rem;
   line-height: 1;
   letter-spacing: 0.02em;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
 .event-card-text {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--color-muted);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 .events-social-block {
   text-align: center;
   border-top: 1px solid var(--color-border);
-  padding-top: 3.5rem;
-  max-width: 500px;
+  padding-top: 2.75rem;
+  max-width: 460px;
   margin: 0 auto;
 }
 
 .events-social-block p {
   color: var(--color-warm-beige);
+  font-size: 0.92rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ==========================================================
+   SPIN VIP CLUB - GOLD VINYL LIVE MEMBERSHIP
+   ========================================================== */
+.vip-section {
+  position: relative;
+  background: radial-gradient(circle at 80% 30%, rgba(200, 90, 23, 0.12) 0%, rgba(10, 10, 10, 1) 70%);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.vip-header {
+  max-width: 640px;
+  margin-bottom: 3rem;
+}
+
+.vip-lead {
+  font-size: 0.98rem;
+  color: var(--color-warm-beige);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.vip-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+/* Formulario VIP compacto y elegante */
+.vip-form {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-border);
+  padding: 2rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.vip-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.vip-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.vip-input-group label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--color-warm-beige);
+  text-transform: uppercase;
+}
+
+.vip-input-group input[type="text"],
+.vip-input-group input[type="tel"],
+.vip-input-group select {
+  width: 100%;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(245, 243, 239, 0.18);
+  color: var(--color-ivory);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.vip-input-group input:focus,
+.vip-input-group select:focus {
+  border-color: var(--color-burnt-orange);
+  box-shadow: 0 0 0 3px rgba(200, 90, 23, 0.2);
+}
+
+/* Caja de subida de foto ID 21+ */
+.vip-upload-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 0.85rem 1.1rem;
+  background: rgba(200, 90, 23, 0.06);
+  border: 1px dashed rgba(212, 175, 55, 0.45);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.vip-upload-box:hover {
+  background: rgba(200, 90, 23, 0.12);
+  border-color: #f3c663;
+}
+
+.vip-upload-content {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.vip-upload-icon {
+  font-size: 1.45rem;
+}
+
+.vip-upload-content strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--color-ivory);
+  letter-spacing: 0.03em;
+}
+
+.vip-upload-content small {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--color-muted);
+}
+
+.vip-id-thumb {
+  width: 48px;
+  height: 34px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #f3c663;
+  flex-shrink: 0;
+}
+
+.vip-submit-btn {
+  width: 100%;
+  margin-top: 0.35rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  box-shadow: 0 12px 28px rgba(200, 90, 23, 0.3);
+}
+
+.vip-disclaimer {
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Escenario de la Tarjeta en Vivo */
+.vip-card-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.vip-card-sticky {
+  width: 100%;
+  max-width: 430px;
+}
+
+.vip-preview-tag {
+  display: inline-block;
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  color: #f3c663;
+  margin-bottom: 0.85rem;
+}
+
+/* TARJETA GOLD VINYL (Escala de tarjeta de lujo real) */
+.gold-vinyl-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.586 / 1;
+  min-height: 235px;
+  border-radius: 16px;
+  padding: 1.4rem 1.5rem;
+  background: linear-gradient(135deg, #1b1815 0%, #090909 55%, #1f1610 100%);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  box-shadow: 
+    0 24px 50px rgba(0, 0, 0, 0.85),
+    inset 0 0 22px rgba(212, 175, 55, 0.12);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-vinyl-grooves {
+  position: absolute;
+  inset: 0;
+  background: repeating-radial-gradient(
+    circle at 88% 50%,
+    rgba(255, 255, 255, 0.025) 0px,
+    rgba(255, 255, 255, 0.025) 1px,
+    transparent 2px,
+    transparent 5px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-metallic-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 20%, rgba(243, 198, 99, 0.1) 45%, rgba(200, 90, 23, 0.14) 55%, transparent 80%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Mini disco de vinilo en el borde derecho de la tarjeta */
+.card-mini-vinyl {
+  position: absolute;
+  right: -48px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: 
+    repeating-radial-gradient(circle, #141414 0px, #141414 2px, #222 3px, #111 5px);
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  box-shadow: -8px 0 25px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  opacity: 0.82;
+  animation: spinVinyl 12s linear infinite;
+}
+
+.card-mini-vinyl.is-typing {
+  animation-duration: 2.5s;
+  border-color: #f3c663;
+}
+
+.card-mini-vinyl-label {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f3c663 0%, #c85a17 85%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
   font-size: 0.95rem;
-  margin-bottom: 1.5rem;
+  color: #0a0a0a;
+  letter-spacing: 0.06em;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.5);
+}
+
+.card-inner {
+  position: relative;
+  z-index: 5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.card-logo {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  background: linear-gradient(90deg, #fff, #f3c663);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-sublogo {
+  display: block;
+  font-size: 0.54rem;
+  letter-spacing: 0.18em;
+  color: var(--color-muted);
+  margin-top: 0.15rem;
+}
+
+.card-tier-badge {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 0.3rem 0.55rem;
+  border-radius: 4px;
+  background: rgba(212, 175, 55, 0.16);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  color: #f3c663;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.card-middle {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.card-gold-chip {
+  width: 36px;
+  height: 27px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #f3c663 0%, #b8860b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 3px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+.chip-line {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.35);
+  width: 100%;
+}
+
+.card-age-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  padding: 0.22rem 0.55rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-warm-beige);
+}
+
+.card-age-status .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-burnt-orange);
+}
+
+.card-age-status.verified {
+  background: rgba(46, 204, 113, 0.15);
+  border-color: rgba(46, 204, 113, 0.6);
+  color: #7bed9f;
+}
+
+.card-age-status.verified .status-dot {
+  background: #2ecc71;
+  box-shadow: 0 0 8px #2ecc71;
+}
+
+.card-field-label {
+  display: block;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  color: var(--color-muted);
+  margin-bottom: 0.1rem;
+}
+
+.card-holder-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  letter-spacing: 0.08em;
+  line-height: 1.05;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  word-break: break-word;
+}
+
+.card-holder-vibe {
+  font-size: 0.72rem;
+  color: #f3c663;
+  font-style: italic;
+  margin-top: 0.1rem;
+  margin-bottom: 0.6rem;
+  max-width: 82%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-meta-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.8fr;
+  gap: 0.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 0.55rem;
+}
+
+.card-meta-val {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-ivory);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-serial {
+  color: #f3c663;
+  font-family: monospace;
+}
+
+.vip-perks-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--color-warm-beige);
 }
 
 /* ==========================================================
@@ -803,7 +1226,7 @@ ul {
    ========================================================== */
 .manifesto {
   background-color: var(--color-charcoal-dark);
-  padding: 10rem 0;
+  padding: 7rem 0;
   text-align: center;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
@@ -811,15 +1234,15 @@ ul {
 
 .manifesto-statement {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 9vw, 8.5rem);
-  line-height: 0.9;
+  font-size: clamp(2.8rem, 7vw, 6.2rem);
+  line-height: 0.92;
   letter-spacing: 0.02em;
   color: var(--color-ivory);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .manifesto-sub {
-  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
   font-weight: 300;
   color: var(--color-muted);
   letter-spacing: 0.02em;
@@ -831,24 +1254,24 @@ ul {
 .visit-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 5rem;
+  gap: 4rem;
   align-items: center;
 }
 
 .visit-lead {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-style: italic;
   color: var(--color-warm-beige);
-  margin-bottom: 3rem;
+  margin-bottom: 2.25rem;
   font-weight: 300;
 }
 
 .visit-info-group {
-  margin-bottom: 3rem;
+  margin-bottom: 2.25rem;
 }
 
 .info-block {
-  padding: 1.5rem 0;
+  padding: 1.25rem 0;
   border-top: 1px solid var(--color-border);
 }
 
@@ -858,14 +1281,14 @@ ul {
 
 .info-title {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.15em;
   color: var(--color-burnt-orange);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .info-link {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--color-ivory);
   line-height: 1.5;
 }
@@ -877,9 +1300,9 @@ ul {
 .hours-row {
   display: flex;
   justify-content: space-between;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--color-warm-beige);
-  padding: 0.3rem 0;
+  padding: 0.25rem 0;
 }
 
 .hours-row strong {
@@ -888,7 +1311,7 @@ ul {
 
 .visit-actions {
   display: flex;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .visit-map-container {
@@ -898,9 +1321,12 @@ ul {
 .map-frame {
   width: 100%;
   aspect-ratio: 1 / 1;
+  max-height: 400px;
   border: 1px solid var(--color-border);
   position: relative;
   background-color: var(--color-dark-brown);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .map-frame iframe {
@@ -916,8 +1342,8 @@ ul {
   left: 1rem;
   background-color: var(--color-charcoal);
   border: 1px solid var(--color-border);
-  padding: 0.5rem 1rem;
-  font-size: 0.7rem;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.68rem;
   letter-spacing: 0.1em;
   color: var(--color-ivory);
 }
@@ -928,44 +1354,44 @@ ul {
 .footer {
   background-color: var(--color-charcoal-dark);
   border-top: 1px solid var(--color-border);
-  padding: 6rem 0 3rem;
+  padding: 4.5rem 0 2.5rem;
 }
 
 .footer-top {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 5rem;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 .footer-logo {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   letter-spacing: 0.05em;
   display: block;
 }
 
 .footer-tagline {
   color: var(--color-muted);
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  margin-top: 0.4rem;
 }
 
 .footer-contact {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .footer-address {
   font-style: normal;
   color: var(--color-warm-beige);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   line-height: 1.5;
 }
 
 .footer-tel, .footer-social {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--color-warm-beige);
 }
 
@@ -976,11 +1402,11 @@ ul {
 .footer-nav ul {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.55rem;
 }
 
 .footer-nav a {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 0.15em;
   color: var(--color-muted);
 }
@@ -994,7 +1420,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid var(--color-border);
-  padding-top: 2rem;
+  padding-top: 1.75rem;
   font-size: 0.75rem;
   color: var(--color-muted);
 }
@@ -1004,7 +1430,7 @@ ul {
    ========================================================== */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(24px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
@@ -1013,7 +1439,6 @@ ul {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 /* ==========================================================
    PROMO MODAL - RESPONSIVE (MÓVIL / IPAD / DESKTOP)
@@ -1042,19 +1467,16 @@ ul {
   position: relative;
   background-color: #121212;
   border: 1px solid rgba(245, 243, 239, 0.15);
-  max-width: 420px;
+  max-width: 380px;
   width: 100%;
-  /* Usa 85dvh para adaptarse a las barras de Safari en iOS / Chrome móvil */
-  max-height: 85dvh;
+  max-height: 86dvh;
   display: flex;
   flex-direction: column;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
-  animation: modalFadeIn 0.3s ease-out;
 }
 
-/* Botón cerrar siempre visible y con área táctil cómoda para el dedo */
 .promo-close-btn {
   position: absolute;
   top: 10px;
@@ -1062,10 +1484,10 @@ ul {
   background: rgba(0, 0, 0, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1082,10 +1504,9 @@ ul {
   border-color: #c85a17;
 }
 
-/* Contenedor de la imagen */
 .promo-modal-image {
   width: 100%;
-  height: 320px;
+  height: 270px;
   background-color: #0a0a0a;
   flex-shrink: 0;
 }
@@ -1094,13 +1515,12 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: center top;
+  object-position: center;
   display: block;
 }
 
-/* Cuerpo con scroll independiente si la pantalla es muy corta */
 .promo-modal-body {
-  padding: 1.2rem 1.4rem;
+  padding: 1.15rem 1.35rem;
   text-align: center;
   background-color: #121212;
   overflow-y: auto;
@@ -1109,19 +1529,19 @@ ul {
 
 .promo-tag {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   color: #c85a17;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
 }
 
 .promo-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.85rem;
+  font-size: 1.75rem;
   color: #fff;
   line-height: 1.05;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
   letter-spacing: 0.04em;
 }
 
@@ -1136,54 +1556,28 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.4rem;
-  margin-bottom: 1rem;
+  gap: 0.35rem;
+  margin-bottom: 0.95rem;
 }
 
 .promo-highlights span {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #f5f3ef;
-  padding: 0.25rem 0.5rem;
+  padding: 0.22rem 0.5rem;
   border-radius: 4px;
 }
 
 .promo-actions .btn {
   width: 100%;
-  font-size: 0.85rem;
-  padding: 0.85rem 1.25rem;
+  font-size: 0.82rem;
+  padding: 0.8rem 1.15rem;
 }
 
 /* ==========================================================
-   AJUSTES PARA PANTALLAS MUY PEQUEÑAS (Móviles de 375px o menos)
+   RESPONSIVE DESIGN (TABLET & CELULAR)
    ========================================================== */
-@media (max-width: 480px) {
-  .promo-modal-image {
-    height: 190px;
-  }
-  
-  .promo-title {
-    font-size: 1.6rem;
-  }
-  
-  .promo-modal-body {
-    padding: 1rem;
-  }
-}
-
-/* Para pantallas en horizontal con poca altura */
-@media (max-height: 600px) {
-  .promo-modal-image {
-    height: 130px;
-  }
-}
-
-/* ==========================================================
-   RESPONSIVE DESIGN (TABLET & MOBILE)
-   ========================================================== */
-
-/* 1. ESTILOS GLOBALES DEL CARRUSEL Y EXPERIENCIA */
 .bookus-carousel-container:hover #prevSlide,
 .bookus-carousel-container:hover #nextSlide {
   opacity: 1 !important;
@@ -1191,12 +1585,6 @@ ul {
 
 #bookusTrack::-webkit-scrollbar {
   display: none;
-}
-
-.exp-row .exp-image {
-  position: relative;
-  overflow: hidden;
-  height: 220px;
 }
 
 .exp-row .exp-image video {
@@ -1213,45 +1601,70 @@ ul {
   transform: scale(1.04);
 }
 
-
-/* 2. TABLETS (Hasta 1024px) */
+/* TABLETS (Hasta 1024px) */
 @media (max-width: 1024px) {
+  html {
+    font-size: 14.5px;
+  }
+
   .editorial-grid,
   .private-grid,
-  .visit-grid {
+  .visit-grid,
+  .vip-grid {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 3rem;
+  }
+
+  /* La tarjeta VIP va arriba del formulario en pantallas táctiles */
+  .vip-card-stage {
+    order: -1;
+  }
+
+  .vip-card-sticky {
+    max-width: 420px;
+    margin: 0 auto;
   }
 
   .exp-row {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
-  .exp-image {
-    max-width: 450px;
+  .exp-row .exp-image {
+    width: 100% !important;
+    max-width: 420px !important;
+    height: 210px !important;
+    max-height: 210px !important;
   }
 
   .events-cards {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.75rem;
   }
 
   .footer-top {
     grid-template-columns: 1fr 1fr;
   }
-
-  
 }
 
-
-/* 3. CELULARES (Hasta 768px - Unificado) */
+/* CELULARES (Hasta 768px - Optimizado para mantener la misma estética) */
 @media (max-width: 768px) {
-  .section-padding {
-    padding: 5rem 0;
+  html {
+    font-size: 15px;
   }
 
-  /* Menú Móvil */
+  .container {
+    padding: 0 1.35rem;
+  }
+
+  .section-padding {
+    padding: 4.25rem 0;
+  }
+
+  .nav-container {
+    padding: 0 1.35rem;
+  }
+
   .nav-toggle {
     display: block;
     z-index: 101;
@@ -1262,10 +1675,10 @@ ul {
     top: 0;
     right: -100%;
     width: 80%;
-    max-width: 380px;
+    max-width: 340px;
     height: 100vh;
     background-color: var(--color-charcoal-dark);
-    padding: 7rem 2.5rem;
+    padding: 6rem 2rem;
     transition: right 0.4s ease;
     border-left: 1px solid var(--color-border);
     z-index: 100;
@@ -1278,99 +1691,119 @@ ul {
   .nav-links {
     flex-direction: column;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 1.65rem;
   }
 
   .nav-link {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 
-  /* Sección Hero */
+  /* Hero en Móvil con vinilo centrado de fondo */
   .hero {
     position: relative;
     overflow: hidden;
-    padding: 7rem 1.5rem 4rem;
+    min-height: 88vh;
+    padding: 6.25rem 1.35rem 3.25rem;
   }
 
-  /* Disco Gigante Protagonista */
- /* Disco Gigante Protagonista sin límites */
   .hero-vinyl-wrapper {
     position: absolute !important;
-    top: 50% !important;
+    top: 48% !important;
     left: 50% !important;
+    right: auto !important;
     transform: translate(-50%, -50%) !important;
-    width: 120vw !important;         /* Mide un 20% más que la pantalla para romper cualquier margen */
-    height: 120vw !important;
-    max-width: none !important;       /* Elimina cualquier tope artificial */
-    max-height: none !important;
-    min-width: 460px !important;      /* Tamaño base contundente */
-    min-height: 460px !important;
+    width: 105vw !important;
+    height: 105vw !important;
+    min-width: 360px !important;
+    min-height: 360px !important;
+    max-width: 460px !important;
+    max-height: 460px !important;
     margin: 0 !important;
     padding: 0 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     z-index: 1 !important;
+    opacity: 0.42 !important;
     pointer-events: none !important;
   }
 
   .vinyl-disc {
     width: 100% !important;
     height: 100% !important;
-    max-width: none !important;
-    max-height: none !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
     border-radius: 50% !important;
   }
 
   .vinyl-disc img {
     width: 100% !important;
     height: 100% !important;
-    max-width: none !important;
-    max-height: none !important;
     object-fit: contain !important;
     display: block !important;
-    filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.9));
-  }
-  .hero-content {
-    position: relative;
-    z-index: 2;
+    filter: drop-shadow(0 16px 35px rgba(0, 0, 0, 0.9));
   }
 
-  .hero-title,
-  .hero-subtext,
-  .hero-actions,
-  .hero-tag {
+  .hero-content {
     position: relative;
     z-index: 3;
   }
 
-  .hero-meta {
-    flex-direction: column;
-    gap: 1.5rem;
+  .hero-title {
+    font-size: clamp(3.3rem, 14vw, 4.6rem);
+    margin-bottom: 1.15rem;
+  }
+
+  .hero-subtext {
+    font-size: 0.98rem;
+    margin-bottom: 1.85rem;
   }
 
   .hero-actions {
     flex-direction: column;
     width: 100%;
-    gap: 0.75rem;
+    gap: 0.65rem;
+    margin-bottom: 2.25rem;
   }
 
   .hero-actions .btn {
     width: 100%;
+    padding: 0.9rem 1.4rem;
+  }
+
+  .hero-actions .btn-outline {
+    background-color: rgba(20, 20, 20, 0.9) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    font-weight: 500;
+  }
+
+  .hero-meta {
+    flex-direction: column;
+    gap: 1.15rem;
+    padding-top: 1.25rem;
   }
 
   .scroll-indicator {
     display: none;
   }
 
-  /* Ruleta Book Us y Experiencia en Móvil */
-  .bookus-carousel-container {
-    height: 340px !important;
+  /* Videos de Experiencia y Carrusel Book Us en Celular */
+  .exp-row {
+    padding: 2.2rem 0;
+  }
+
+  .exp-row .exp-image {
+    width: 100% !important;
+    min-width: 100% !important;
     max-width: 100% !important;
-    margin: 20px auto 0 !important;
+    height: 200px !important;
+    max-height: 200px !important;
+    margin-top: 0.5rem;
+  }
+
+  .bookus-carousel-container {
+    height: 310px !important;
+    max-width: 100% !important;
+    margin: 10px auto 0 !important;
   }
 
   .bookus-carousel-track {
@@ -1382,14 +1815,98 @@ ul {
     justify-content: center !important;
   }
 
-  .exp-row .exp-image {
-    width: 100% !important;
-    min-width: 100% !important;
-    height: 220px !important;
-    margin-top: 12px;
+  /* ==========================================================
+     TARJETA VIP Y FORMULARIO EN CELULAR (PROPORCIÓN EXACTA)
+     ========================================================== */
+  .vip-header {
+    margin-bottom: 2rem;
   }
 
-  /* Ocasiones, Visita y Footer */
+  .vip-grid {
+    gap: 2rem;
+  }
+
+  .vip-card-sticky {
+    max-width: 100%;
+  }
+
+  .gold-vinyl-card {
+    padding: 1.15rem 1.2rem;
+    min-height: 205px;
+    border-radius: 14px;
+  }
+
+  .card-logo {
+    font-size: 1.25rem;
+  }
+
+  .card-sublogo {
+    font-size: 0.48rem;
+    letter-spacing: 0.14em;
+  }
+
+  .card-tier-badge {
+    font-size: 0.52rem;
+    padding: 0.25rem 0.45rem;
+    letter-spacing: 0.08em;
+  }
+
+  .card-gold-chip {
+    width: 32px;
+    height: 24px;
+  }
+
+  .card-mini-vinyl {
+    width: 125px;
+    height: 125px;
+    right: -40px;
+    opacity: 0.65;
+  }
+
+  .card-mini-vinyl-label {
+    width: 40px;
+    height: 40px;
+    font-size: 0.8rem;
+  }
+
+  .card-holder-name {
+    font-size: 1.35rem;
+  }
+
+  .card-holder-vibe {
+    font-size: 0.68rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .card-meta-val {
+    font-size: 0.64rem;
+  }
+
+  .vip-perks-strip {
+    justify-content: center;
+    gap: 0.5rem 0.9rem;
+    font-size: 0.66rem;
+    text-align: center;
+  }
+
+  .vip-form {
+    padding: 1.35rem;
+    gap: 1rem;
+  }
+
+  .vip-form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* 16px evita que iPhone haga zoom automático al tocar un input */
+  .vip-input-group input[type="text"],
+  .vip-input-group input[type="tel"],
+  .vip-input-group select {
+    font-size: 16px;
+    padding: 0.75rem 0.9rem;
+  }
+
   .occasions-list {
     grid-template-columns: 1fr;
   }
@@ -1404,32 +1921,24 @@ ul {
 
   .footer-top {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .footer-bottom {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.85rem;
     align-items: flex-start;
   }
-
-
-
-  /* Botón THE EXPERIENCE sólido y visible */
-.hero-actions .btn-outline {
-  background-color: #1a1a1a !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.4) !important;
-  opacity: 1 !important;
-  backdrop-filter: none !important;
-  font-weight: 600;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.hero-actions .btn-outline:hover {
-  background-color: #ffffff !important;
-  color: #0a0a0a !important;
-  border-color: #ffffff !important;
+@media (max-width: 480px) {
+  .promo-modal-image {
+    height: 185px;
+  }
+  .promo-title {
+    font-size: 1.55rem;
+  }
+  .promo-modal-body {
+    padding: 0.95rem 1.1rem;
+  }
 }
-}
-

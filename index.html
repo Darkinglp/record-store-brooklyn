@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RECORD STORE | Brooklyn Vinyl, Music & Community</title>
+  <title>SPIN RECORDS | Brooklyn Vinyl, Music & Community</title>
   <meta name="description" content="A modern Brooklyn record space bringing together vinyl, music, art, community and a relaxed lounge experience at 420 Humboldt Street.">
-  <link rel="canonical" href="https://420vinyls.com/">
+  <link rel="canonical" href="https://spinrecordsbk.com/">
 
   <!-- Google Fonts: Bebas Neue & DM Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,300&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
 
   <!-- SEO LocalBusiness Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "RECORD STORE",
+    "name": "SPIN RECORDS",
     "description": "A modern Brooklyn record lounge where music, art, and community meet.",
     "telephone": "+1 (929) 355-5138",
     "address": {
@@ -68,6 +68,7 @@
           <li><a href="#experience" class="nav-link">EXPERIENCE</a></li> 
           <li><a href="#book-us" class="nav-link">BOOK US</a></li>
           <li><a href="#events" class="nav-link">EVENTS</a></li>
+          <li><a href="#vip-club" class="nav-link nav-vip-badge">✦ VIP CLUB</a></li>
           <li><a href="#visit" class="nav-link nav-cta">VISIT US</a></li>
         </ul>
       </nav>
@@ -101,7 +102,7 @@
              class="btn btn-primary btn-whatsapp">
              BOOK US
           </a>
-          <a href="#visit" class="btn btn-secondary">VISIT US</a>
+          <a href="#vip-club" class="btn btn-secondary">JOIN VIP CLUB</a>
           <a href="#experience" class="btn btn-outline">THE EXPERIENCE</a>
         </div>
 
@@ -131,7 +132,7 @@
             <span class="section-label">ABOUT THE SPACE</span>
             <h2 class="editorial-heading">A PLACE TO SLOW DOWN AND PRESS PLAY.</h2>
             <div class="editorial-body">
-              <p>At Record Store, we believe music is meant to be experienced, shared, and enjoyed.</p>
+              <p>At Spin Records, we believe music is meant to be experienced, shared, and enjoyed.</p>
               <p>Our space brings together the warmth of a record collection, the comfort of a neighborhood lounge, and the creative spirit of Brooklyn.</p>
               <p>Whether you're searching for your next favorite album, taking a break from the city, meeting friends, or looking for a place to work and unwind, you're welcome here.</p>
             </div>
@@ -257,7 +258,7 @@
               </ul>
             </div>
 
-    <a href="https://wa.me/19293555138?text=Hello%20Spin%20Records!%20I'd%20like%20to%20inquire%20about%20booking%20the%20space." 
+            <a href="https://wa.me/19293555138?text=Hello%20Spin%20Records!%20I'd%20like%20to%20inquire%20about%20booking%20the%20space." 
                target="_blank" 
                rel="noopener noreferrer" 
                class="btn btn-primary">
@@ -265,8 +266,8 @@
             </a>
           </div>
 
-         <div class="private-visual reveal" style="width: 100%; display: flex; justify-content: flex-end; align-items: center;">
-  <!-- Contenedor ampliado: 640px de ancho y 490px de alto -->
+          <div class="private-visual reveal" style="width: 100%; display: flex; justify-content: flex-end; align-items: center;">
+            <!-- Contenedor ampliado: 640px de ancho y 490px de alto -->
             <div class="bookus-carousel-container" style="position: relative; width: 100%; max-width: 640px; height: 490px; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 16px 40px rgba(0,0,0,0.65);">
               
               <div class="bookus-carousel-track" id="bookusTrack" style="display: flex; gap: 16px; width: 100%; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding: 18px 10%; box-sizing: border-box; align-items: center;">
@@ -369,6 +370,161 @@
       </div>
     </section>
 
+    <!-- ==========================================================
+         NEW SECTION: SPIN VIP CLUB (GOLD VINYL LIVE MEMBERSHIP)
+         ========================================================== -->
+    <section class="vip-section section-padding" id="vip-club">
+      <div class="container">
+        <div class="vip-header reveal">
+          <span class="section-label">THE INNER CIRCLE // 21+ PRIVATE ACCESS</span>
+          <h2 class="section-title-large">SPIN GOLD VIP PASS.</h2>
+          <p class="vip-lead">
+            Unlock priority RSVP for Movie Mondays, after-hours lounge access, rare crate drops, and members-only BYOB &amp; sesh nights at 420 Humboldt. Watch your metallic vinyl pass engrave in real time below.
+          </p>
+        </div>
+
+        <div class="vip-grid">
+          <!-- COLUMNA IZQUIERDA: FORMULARIO EN VIVO -->
+          <div class="vip-form-wrapper reveal">
+            <form id="vipForm" class="vip-form" onsubmit="return false;">
+              
+              <div class="vip-input-group">
+                <label for="vipName">FULL NAME (ENGRAVED ON PASS) *</label>
+                <input type="text" id="vipName" placeholder="e.g. Miles Morales" maxlength="28" required autocomplete="name">
+              </div>
+
+              <div class="vip-form-row">
+                <div class="vip-input-group">
+                  <label for="vipPhone">WHATSAPP / PHONE *</label>
+                  <input type="tel" id="vipPhone" placeholder="+1 (929) 000-0000" required autocomplete="tel">
+                </div>
+                <div class="vip-input-group">
+                  <label for="vipInstagram">INSTAGRAM OR EMAIL *</label>
+                  <input type="text" id="vipInstagram" placeholder="@yourhandle" required>
+                </div>
+              </div>
+
+              <div class="vip-input-group">
+                <label for="vipVibe">SELECT YOUR MEMBER VIBE *</label>
+                <select id="vipVibe">
+                  <option value="ALL-ACCESS LOUNGE VIP">ALL-ACCESS LOUNGE VIP (DAY & NIGHT)</option>
+                  <option value="CRATE DIGGER & VINYL">CRATE DIGGER (RARE VINYL & LISTENING)</option>
+                  <option value="MOVIE MONDAYS & SESH">MOVIE MONDAYS & SESH LOUNGE</option>
+                  <option value="CREATOR & OPEN MIC">BROOKLYN CREATOR / ARTIST PASS</option>
+                </select>
+              </div>
+
+              <div class="vip-input-group">
+                <label for="vipReason">FAVORITE GENRE OR WHY YOU'RE JOINING</label>
+                <input type="text" id="vipReason" placeholder="90s Hip-Hop, Neo-Soul, Movie Nights & Chill..." maxlength="55">
+              </div>
+
+              <!-- Verificación 21+ con carga de ID en vivo -->
+              <div class="vip-input-group">
+                <label>21+ AGE VERIFICATION (PHOTO ID FOR LOUNGE ACCESS) *</label>
+                <label for="vipIdUpload" class="vip-upload-box" id="vipUploadLabel">
+                  <div class="vip-upload-content" id="vipUploadContent">
+                    <span class="vip-upload-icon">🪪</span>
+                    <div>
+                      <strong id="vipUploadTitle">Upload Photo of Official ID (21+)</strong>
+                      <small id="vipUploadSub">Tap to attach driver's license, state ID, or passport</small>
+                    </div>
+                  </div>
+                  <img id="vipIdPreview" class="vip-id-thumb" alt="ID Preview" style="display: none;">
+                  <input type="file" id="vipIdUpload" accept="image/*" hidden>
+                </label>
+              </div>
+
+              <button type="button" id="vipSubmitBtn" class="btn btn-primary vip-submit-btn">
+                ACTIVATE PASS VIA WHATSAPP CONCIERGE
+              </button>
+              <p class="vip-disclaimer">
+                * Your pass details are encrypted into a direct WhatsApp Concierge request. No spam, strictly Brooklyn community vibes.
+              </p>
+            </form>
+          </div>
+
+          <!-- COLUMNA DERECHA: TARJETA GOLD VINYL EN VIVO -->
+          <div class="vip-card-stage reveal">
+            <div class="vip-card-sticky">
+              <span class="vip-preview-tag">● LIVE METALLIC PASS PREVIEW</span>
+
+              <!-- LA TARJETA INTERACTIVA -->
+              <div class="gold-vinyl-card" id="goldVinylCard">
+                <!-- Brillo metálico dinámico -->
+                <div class="card-metallic-sheen"></div>
+                <!-- Surcos de vinilo de fondo -->
+                <div class="card-vinyl-grooves"></div>
+
+                <!-- Disco de vinilo dorado semi-asomado que gira al escribir -->
+                <div class="card-mini-vinyl" id="cardMiniVinyl" aria-hidden="true">
+                  <div class="card-mini-vinyl-label">
+                    <span>420</span>
+                  </div>
+                </div>
+
+                <div class="card-inner">
+                  <!-- Top Row -->
+                  <div class="card-top">
+                    <div class="card-brand">
+                      <span class="card-logo">SPIN RECORDS</span>
+                      <span class="card-sublogo">BROOKLYN, NY • 420 HUMBOLDT ST</span>
+                    </div>
+                    <div class="card-tier-badge" id="cardVibeDisplay">
+                      ALL-ACCESS LOUNGE VIP
+                    </div>
+                  </div>
+
+                  <!-- Chip & Estado 21+ -->
+                  <div class="card-middle">
+                    <div class="card-gold-chip">
+                      <div class="chip-line"></div>
+                      <div class="chip-line"></div>
+                    </div>
+                    <div class="card-age-status" id="cardAgeBadge">
+                      <span class="status-dot"></span>
+                      <span id="cardAgeText">21+ ID PENDING</span>
+                    </div>
+                  </div>
+
+                  <!-- Datos grabados en vivo -->
+                  <div class="card-bottom">
+                    <div class="card-holder-block">
+                      <span class="card-field-label">MEMBER NAME</span>
+                      <div class="card-holder-name" id="cardNameDisplay">YOUR NAME HERE</div>
+                      <div class="card-holder-vibe" id="cardReasonDisplay">Spin Records Inner Circle</div>
+                    </div>
+
+                    <div class="card-meta-row">
+                      <div>
+                        <span class="card-field-label">CONTACT / IG</span>
+                        <span class="card-meta-val" id="cardContactDisplay">@420VINYLS</span>
+                      </div>
+                      <div>
+                        <span class="card-field-label">PASS NO.</span>
+                        <span class="card-meta-val card-serial" id="cardSerialDisplay">#SR-BK-0420</span>
+                      </div>
+                      <div>
+                        <span class="card-field-label">ISSUED</span>
+                        <span class="card-meta-val">2026 // VIP</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Beneficios rápidos debajo de la tarjeta -->
+              <div class="vip-perks-strip">
+                <span>✦ Priority Movie Mondays</span>
+                <span>✦ Sesh &amp; BYOB Lounge</span>
+                <span>✦ First Dibs on Rare Crates</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION 6: BRAND STATEMENT / MANIFESTO -->
     <section class="manifesto">
       <div class="container">
@@ -429,7 +585,7 @@
           <div class="visit-map-container reveal">
             <div class="map-frame">
               <iframe 
-                title="Record Store Location"
+                title="Spin Records Location"
                 src="https://maps.google.com/maps?q=420%20Humboldt%20Street,%20Brooklyn,%20NY&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade">
@@ -468,6 +624,7 @@
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#experience">EXPERIENCE</a></li>
             <li><a href="#events">EVENTS</a></li>
+            <li><a href="#vip-club">VIP CLUB</a></li>
             <li><a href="#book-us">BOOK US</a></li>
             <li><a href="#visit">VISIT US</a></li>
           </ul>
@@ -500,7 +657,6 @@
       });
     }
 
-    // Efecto de enfoque: el del centro grande, los lados pequeños y tenues
     function updateSlideFocus() {
       const trackCenter = track.getBoundingClientRect().left + track.clientWidth / 2;
 
@@ -521,7 +677,6 @@
       });
     }
 
-    // Play/Pause con audio
     playBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -550,7 +705,6 @@
       });
     });
 
-    // Navegación
     function getStep() {
       return slides[0].getBoundingClientRect().width + 14;
     }
@@ -575,44 +729,43 @@
     window.addEventListener('resize', updateSlideFocus);
     updateSlideFocus();
   })();
-</script>
+  </script>
 
-<!-- PROMO MODAL: MOVIE MONDAYS -->
-<div class="promo-modal-backdrop" id="promoModal" aria-hidden="true" role="dialog" aria-modal="true">
-  <div class="promo-modal-card">
-    <button class="promo-close-btn" id="closePromoModal" aria-label="Close modal">&times;</button>
-    
-    <div class="promo-modal-image">
-      <img src="img/Flyer_Home.jpg" alt="Movie Mondays at Record Store Brooklyn">
-    </div>
-    
-    <div class="promo-modal-body">
-      <span class="promo-tag">EVERY MONDAY @ 7:00 PM // MOVIE NIGHT</span>
-      <h3 class="promo-title">MOVIE MONDAYS</h3>
+  <!-- PROMO MODAL: MOVIE MONDAYS -->
+  <div class="promo-modal-backdrop" id="promoModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="promo-modal-card">
+      <button class="promo-close-btn" id="closePromoModal" aria-label="Close modal">&times;</button>
       
-      <p class="promo-desc">
-        Good movies, high times & great company. Cast your vote Sunday through Monday at 5:00 PM, then kick back with us on the big screen!
-      </p>
-
-      <div class="promo-highlights">
-        <span>🍿 Chill Lounge</span>
-        <span>🎮 Games</span>
-        <span>🌿 Sesh Friendly</span>
-        <span>🥤 BYOB</span>
+      <div class="promo-modal-image">
+        <img src="img/Flyer_Home.jpg" alt="Movie Mondays at Spin Records Brooklyn">
       </div>
       
-      <div class="promo-actions">
-        <a href="https://wa.me/19293555138?text=Hey%20Spin%20Records!%20I'd%20like%20to%20vote%20for%20Movie%20Monday%20and%20reserve%20a%20spot." 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="btn btn-primary">
-          VOTE & RESERVE A SPOT
-        </a>
+      <div class="promo-modal-body">
+        <span class="promo-tag">EVERY MONDAY @ 7:00 PM // MOVIE NIGHT</span>
+        <h3 class="promo-title">MOVIE MONDAYS</h3>
+        
+        <p class="promo-desc">
+          Good movies, high times & great company. Cast your vote Sunday through Monday at 5:00 PM, then kick back with us on the big screen!
+        </p>
+
+        <div class="promo-highlights">
+          <span>🍿 Chill Lounge</span>
+          <span>🎮 Games</span>
+          <span>🌿 Sesh Friendly</span>
+          <span>🥤 BYOB</span>
+        </div>
+        
+        <div class="promo-actions">
+          <a href="https://wa.me/19293555138?text=Hey%20Spin%20Records!%20I'd%20like%20to%20vote%20for%20Movie%20Monday%20and%20reserve%20a%20spot." 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn btn-primary">
+            VOTE & RESERVE A SPOT
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 </body>
-
 </html>
